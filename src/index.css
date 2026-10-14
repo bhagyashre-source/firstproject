@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f0f7ff;
+  color: #1e293b;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* App */
+.app {
+  min-height: 100vh;
+  background: #f0f7ff;
+}
+
+/* Navbar */
+.navbar {
+  height: 70px;
+  padding: 0 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-bottom: 1px solid #dbeafe;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.nav-badge {
+  padding: 8px 14px;
+  background: #dbeafe;
+  color: #2563eb;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* Main content */
+.main-content {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 60px 0 30px;
+}
+
+/* Heading */
+.hero {
+  margin-bottom: 35px;
+}
+
+.eyebrow {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.hero h1 {
+  font-size: clamp(34px, 5vw, 55px);
+  margin: 15px 0;
+}
+
+.hero h1 span {
+  color: #2563eb;
+}
+
+.hero p {
+  max-width: 500px;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  padding: 25px;
+  background: white;
+  border: 1px solid #dbeafe;
+  border-radius: 15px;
+}
+
+.card:hover {
+  border-color: #2563eb;
+}
+
+.card-icon {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.card-label {
+  display: block;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.card h2 {
+  font-size: 22px;
+}
+
+.card p {
+  color: #475569;
+  line-height: 1.6;
+}
+
+.card .muted {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Buttons */
+.dashboard-card button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+.dashboard-card button:hover {
+  background: #1d4ed8;
+}
+
+.dashboard-card button + button {
+  background: white;
+  color: #2563eb;
+  border: 1px solid #2563eb;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #2563eb;
+  border-radius: 50%;
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .main-content {
+    padding-top: 40px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}
