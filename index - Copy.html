@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation using JavaScript and jQuery</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body{
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        .container{
+            width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid gray;
+            border-radius: 10px;
+        }
+
+        .error{
+            color: red;
+            font-size: 14px;
+        }
+
+        .success{
+            color: green;
+            font-weight: bold;
+        }
+
+        input{
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button{
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>User Registration Form</h2>
+
+<form id="myForm">
+
+    <label>Name</label>
+    <input type="text" id="name">
+    <span id="nameError" class="error"></span>
+
+    <label>Email</label>
+    <input type="text" id="email">
+    <span id="emailError" class="error"></span>
+
+    <label>Mobile Number</label>
+    <input type="text" id="mobile">
+    <span id="mobileError" class="error"></span>
+
+    <label>Password</label>
+    <input type="password" id="password">
+    <span id="passwordError" class="error"></span>
+
+    <br><br>
+
+    <button type="submit">Submit</button>
+
+</form>
+
+<br>
+<div id="message"></div>
+
+</div>
+
+<script>
+
+$(document).ready(function(){
+
+    $("#myForm").submit(function(event){
+
+        event.preventDefault();
+
+        $(".error").text("");
+        $("#message").html("");
+
+        let name = $("#name").val().trim();
+        let email = $("#email").val().trim();
+        let mobile = $("#mobile").val().trim();
+        let password = $("#password").val().trim();
+
+        let valid = true;
+
+        // Name Validation
+        if(name === ""){
+            $("#nameError").text("Name is required");
+            valid = false;
+        }
+        else if(!/^[A-Za-z ]+$/.test(name)){
+            $("#nameError").text("Only letters are allowed");
+            valid = false;
+        }
+
+        // Email Validation
+        let emailPattern =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if(email === ""){
+            $("#emailError").text("Email is required");
+            valid = false;
+        }
+        else if(!emailPattern.test(email)){
+            $("#emailError").text("Invalid email format");
+            valid = false;
+        }
+
+        // Mobile Validation
+        if(!/^\d{10}$/.test(mobile)){
+            $("#mobileError").text("Enter 10 digit mobile number");
+            valid = false;
+        }
+
+        // Password Validation
+        if(password.length < 6){
+            $("#passwordError").text("Password must be at least 6 characters");
+            valid = false;
+        }
+
+        if(valid){
+            $("#message").html(
+                "<p class='success'>Form Submitted Successfully!</p>"
+            );
+
+            $("#myForm")[0].reset();
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
